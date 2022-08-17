@@ -29,7 +29,6 @@ public class ThrottleAspect {
     public void throttle(JoinPoint joinPoint, Throttle throttle) {
         HttpServletRequest request = getCurrentHttpRequest();
         String ipAddress = getIpAddress(request);
-        System.out.println(ipAddress);
 
         ipRequestsMap.compute(ipAddress, (key, val) -> {
             if (val == null) {
